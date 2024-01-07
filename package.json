@@ -10,12 +10,12 @@
     "#*": "./*"
   },
   "scripts": {
-    "build": "run-s build:*",
-    "build:icons": "tsx ./other/build-icons.ts",
-    "build:remix": "remix build --sourcemap",
-    "build:server": "tsx ./other/build-server.ts",
-    "predev": "npm run build:icons --silent",
-    "dev": "remix dev -c \"node ./server/dev-server.js\" --manual",
+    "build": "find ./ -name \".DS_Store\" -print -delete; run-s build:*",
+    "build:icons": "find ./ -name \".DS_Store\" -print -delete; tsx ./other/build-icons.ts",
+    "build:remix": "find ./ -name \".DS_Store\" -print -delete; remix build --sourcemap",
+    "build:server": "find ./ -name \".DS_Store\" -print -delete; tsx ./other/build-server.ts",
+    "predev": "find ./ -name \".DS_Store\" -print -delete; npm run build:icons --silent",
+    "dev": "find ./ -name \".DS_Store\" -print -delete; remix dev -c \"node ./server/dev-server.js\" --manual",
     "prisma:studio": "prisma studio",
     "format": "prettier --write .",
     "lint": "eslint .",
@@ -90,7 +90,6 @@
     "litefs-js": "^1.1.2",
     "lru-cache": "^10.1.0",
     "morgan": "^1.10.0",
-    "prisma": "^5.6.0",
     "qrcode": "^1.5.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -150,6 +149,7 @@
     "prettier": "^3.1.0",
     "prettier-plugin-sql": "^0.17.0",
     "prettier-plugin-tailwindcss": "^0.5.7",
+    "prisma": "^5.7.1",
     "remix-flat-routes": "^0.6.2",
     "tsx": "^4.6.0",
     "typescript": "^5.3.2",
@@ -160,6 +160,6 @@
     "node": "20"
   },
   "prisma": {
-    "seed": "tsx prisma/seed.ts"
+    "seed": "tsx seed.ts"
   }
 }

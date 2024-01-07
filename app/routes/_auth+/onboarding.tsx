@@ -62,7 +62,9 @@ async function requireOnboardingEmail(request: Request) {
 	return email
 }
 export async function loader({ request }: DataFunctionArgs) {
+	console.log('email loader called')
 	const email = await requireOnboardingEmail(request)
+	console.log('email is', email)
 	return json({ email })
 }
 

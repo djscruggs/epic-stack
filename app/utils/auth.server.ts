@@ -24,6 +24,7 @@ for (const [providerName, provider] of Object.entries(providers)) {
 }
 
 export async function getUserId(request: Request) {
+	console.log('userid called')
 	const authSession = await authSessionStorage.getSession(
 		request.headers.get('cookie'),
 	)
